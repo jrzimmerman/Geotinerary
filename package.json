@@ -1,0 +1,23 @@
+{
+  "name": "geotinerary",
+  "version": "0.0.1",
+  "description": "A location based itinerary",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrzimmerman/Geotinerary.git"
+  },
+  "keywords": [
+    "geo",
+    "itinerary"
+  ],
+  "author": "Justin Zimmerman <justin.richard.zimmerman@gmail.com> (http://justinzimmerman.net)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jrzimmerman/Geotinerary/issues"
+  },
+  "homepage": "https://github.com/jrzimmerman/Geotinerary#readme"
+}
