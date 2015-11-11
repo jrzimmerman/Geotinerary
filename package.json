@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jrzimmerman/Geotinerary/issues"
   },
-  "homepage": "https://github.com/jrzimmerman/Geotinerary#readme"
+  "homepage": "https://github.com/jrzimmerman/Geotinerary#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
