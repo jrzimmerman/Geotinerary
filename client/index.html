@@ -9,8 +9,10 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/superhero.min.css">
-    <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
-    <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet'>
+    <!-- Mapbox -->
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+    
     <link rel="stylesheet" href="css/style.css">
 
   </head>
@@ -41,7 +43,7 @@
                 <button type="Search Location" class="btn btn-default">Search Address</button>
               </form>
               <ul class="nav navbar-nav navbar-right">
-                <li><a id="geolocate">Locate</a></li>
+                <li><a href="#" id="geolocate">Locate</a></li>
               </ul>
             </div>
           </div>
@@ -69,9 +71,15 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
+    <!-- Geofire -->
+    <script src="scripts/vendor/rsvp.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/geofire/3.0.0/geofire.min.js"></script>
     <script src="js/stores.geojson"></script>
     <script src="js/index.js"></script>
   </body>
