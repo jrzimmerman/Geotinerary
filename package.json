@@ -23,9 +23,9 @@
   },
   "homepage": "https://github.com/jrzimmerman/Geotinerary#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "bower": "^1.6.5"
   },
   "devDependencies": {
-    "bower": "^1.6.5"
   }
 }
