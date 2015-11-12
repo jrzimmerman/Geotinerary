@@ -4,7 +4,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoianppbW1lcm1hbiIsImEiOiJJNUp6R3lzIn0.k5J_tYDto
   var lat = 40.8;
   var lon = -96.67;
   // Grab IP location from freegeoip API
-  $.getJSON('http://freegeoip.net/json/', function(json) {
+  $.getJSON('https://freegeoip.net/json/', function(json) {
     if (json) {
       lat = json.latitude;
       lon = json.longitude;
