@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "postinstall": "./node_modules/bower/bin/bower install",
     "dev": "nodemon server.js"
   },
   "repository": {
@@ -24,7 +23,6 @@
   "homepage": "https://github.com/jrzimmerman/Geotinerary#readme",
   "dependencies": {
     "express": "^4.13.3",
-    "bower": "^1.6.5"
   },
   "devDependencies": {
   }
