@@ -12,7 +12,7 @@ var map = L.mapbox.map('map', 'jzimmerman.o4hd1peb');
 //     // Build the map
 //     map.setView([lat, lon], 10);
 //   });
-  map.featureLayer.setGeoJSON(stores);
+  map.featureLayer.setGeoJSON(todos);
 
   // Geolocate with HTML 5
   if (navigator.geolocation) {
