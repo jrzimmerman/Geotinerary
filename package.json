@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/jrzimmerman/Geotinerary#readme",
   "dependencies": {
-    "express": "^4.13.3",
+    "express": "^4.13.3"
   },
   "devDependencies": {}
 }
