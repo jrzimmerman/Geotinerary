@@ -24,5 +24,8 @@
   "dependencies": {
     "express": "^4.13.3"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": "5.0.0"
+  }
 }
