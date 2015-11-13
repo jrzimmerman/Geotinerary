@@ -23,8 +23,6 @@
             if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(function(position) {
                 map.setView([position.coords.latitude, position.coords.longitude], 10);
-                vm.lat = position.coords.latitude;
-                vm.lon = position.coords.longitude;
               });
              }
             // Mapbox utils
@@ -41,9 +39,10 @@
             // console.log(vm.message);
             
             vm.todos = dataService.getData();
+            console.log(vm.todos);
 
-            var firebaseRef = new Firebase("https://geotinerary1.firebaseio.com/");
-            var geoFire = new GeoFire(firebaseRef);
+            // var firebaseRef = new Firebase("https://geotinerary1.firebaseio.com/");
+            // var geoFire = new GeoFire(firebaseRef);
             // Connect to the example firebase. This is a free account, and so it
             // will fail if given more than 50 concurrent users. Create an account at
             // http://firebaseio.com/ and use your own database if you want to try out
@@ -64,51 +63,51 @@
                 // Add a form to that marker that lets them specify a message and click Add
                 // to add the data.
             })
-              .bindPopup('<fieldset class="clearfix input-pill pill mobile-cols"><input type="text" id="vm.text" class="col9" /><button id="add-button" class="col3">Add</button></fieldset>')
+              .bindPopup('<fieldset class="clearfix input-pill pill mobile-cols"><input type="text" id="message" class="col9" /><button id="add-button" class="col3">Add</button></fieldset>')
                 .addTo(map)
                 .openPopup();
+
             // Every time the marker is dragged, update the form.
             marker.on('dragend', function(e) {
-                marker.openPopup();
-
-                // When the user clicks Add
-                L.DomEvent.addListener(L.DomUtil.get('add-button'), 'click', vm.save);
-            }); 
-        /////////////////////////////////////////////
+              marker.openPopup();
+              // When the user clicks Add
+              L.DomEvent.addListener(L.DomUtil.get('add-button'), 'click', vm.save);
+            });
 
         }
 
-        vm.addMarker = function(lat, lon){
-            // Generate a random color for the marker, just for fun.
-            var color = '#' + [
-              (~~(Math.random() * 16)).toString(16),
-              (~~(Math.random() * 16)).toString(16),
-              (~~(Math.random() * 16)).toString(16)].join('');
+        /////////////////////////////////////////////
+        // vm.addMarker = function(){
+        //     // Generate a random color for the marker, just for fun.
+        //     var color = '#' + [
+        //       (~~(Math.random() * 16)).toString(16),
+        //       (~~(Math.random() * 16)).toString(16),
+        //       (~~(Math.random() * 16)).toString(16)].join('');
 
-            var marker = L.marker([lat, lon], {
-                draggable: true,
-                icon: L.mapbox.marker.icon({
-                    'marker-color': color
-                })
-                // Add a form to that marker that lets them specify a message and click Add
-                // to add the data.
-            })
-              .bindPopup('<fieldset class="clearfix input-pill pill mobile-cols"><input type="text" id="vm.text" class="col9" /><button id="add-button" class="col3">Add</button></fieldset>')
-                .addTo(map)
-                .openPopup();
-            // Every time the marker is dragged, update the form.
-            marker.on('dragend', function(e) {
-                marker.openPopup();
+        //     var marker = L.marker([lat, lon], {
+        //         draggable: true,
+        //         icon: L.mapbox.marker.icon({
+        //             'marker-color': color
+        //         })
+        //         // Add a form to that marker that lets them specify a message and click Add
+        //         // to add the data.
+        //     })
+        //       .bindPopup('<fieldset class="clearfix input-pill pill mobile-cols"><input type="text" id="vm.text" class="col9" /><button id="add-button" class="col3">Add</button></fieldset>')
+        //         .addTo(map)
+        //         .openPopup();
+        //     // Every time the marker is dragged, update the form.
+        //     marker.on('dragend', function(e) {
+        //         marker.openPopup();
 
-                // When the user clicks Add
-                L.DomEvent.addListener(L.DomUtil.get('add-button'), 'click', vm.save);
-            });            
-        };
+        //         // When the user clicks Add
+        //         L.DomEvent.addListener(L.DomUtil.get('add-button'), 'click', vm.save);
+        //     });            
+        // };
 
         vm.save = function(){
             
-            dataService.addData({name: vm.text|| 'test ', text: vm.text || 'test', address: vm.location.address || '101 test st'}, 
-                                {latitude: vm.lat|| 40.00868343656941 , longitude: vm.lon|| -79.07890319824219});
+            dataService.addData({name: vm.name|| 'Test Todo', text: vm.text || 'Testing Todos', address: vm.location.address || '101 Test St'}, 
+                                {latitude: vm.location.latitude || 40.00868343656941, longitude: vm.location.longitude || -79.07890319824219});
             
         };
   }
