@@ -12,8 +12,6 @@
         vm.location = {};
         vm.message = "Hello from Main";
         vm.name = 'testing';
-        vm.lat = 40.00868343656941;
-        vm.lon = -79.07890319824219;
 
         
         
@@ -52,38 +50,13 @@
             // this example.
 
             
-            // Create the marker that the user drags to add their message to the map
-            
-            // // With a cap of 200, listen for new markers being added to the map.
-            // geoFire.limit(200).on('child_added', function(snapshot) {
-            //     // And for each new marker, add a featureLayer.
-            //     L.mapbox.featureLayer(snapshot.val())
-            //         .eachLayer(function(l) {
-            //             // Which positions markers below the marker you drag, so that
-            //             // they don't overlap in the z-index.
-            //             l.setZIndexOffset(-1000);
-            //             // And each marker should have a label with its title.
-            //             var geojson = l.toGeoJSON();
-            //             if (geojson && geojson.properties && geojson.properties.title) {
-            //                 l.bindLabel(L.mapbox.sanitize(geojson.properties.title), {
-            //                     noHide: true
-            //                 });
-            //             }
-            //         })
-            //         .addTo(map);
-            // });
-        /////////////////////////////////////////////
-
-        }
-
-        vm.addMarker = function(){
             // Generate a random color for the marker, just for fun.
             var color = '#' + [
               (~~(Math.random() * 16)).toString(16),
               (~~(Math.random() * 16)).toString(16),
               (~~(Math.random() * 16)).toString(16)].join('');
 
-            var marker = L.marker([vm.lat, vm.lon], {
+            var marker = L.marker([vm.lat || 40.00868343656941, vm.lon || -79.07890319824219], {
                 draggable: true,
                 icon: L.mapbox.marker.icon({
                     'marker-color': color
@@ -99,7 +72,36 @@
                 marker.openPopup();
 
                 // When the user clicks Add
-                L.DomEvent.addListener(L.DomUtil.get('add-button'), 'click', vm.addMarker);
+                L.DomEvent.addListener(L.DomUtil.get('add-button'), 'click', vm.save);
+            }); 
+        /////////////////////////////////////////////
+
+        }
+
+        vm.addMarker = function(lat, lon){
+            // Generate a random color for the marker, just for fun.
+            var color = '#' + [
+              (~~(Math.random() * 16)).toString(16),
+              (~~(Math.random() * 16)).toString(16),
+              (~~(Math.random() * 16)).toString(16)].join('');
+
+            var marker = L.marker([lat, lon], {
+                draggable: true,
+                icon: L.mapbox.marker.icon({
+                    'marker-color': color
+                })
+                // Add a form to that marker that lets them specify a message and click Add
+                // to add the data.
+            })
+              .bindPopup('<fieldset class="clearfix input-pill pill mobile-cols"><input type="text" id="vm.text" class="col9" /><button id="add-button" class="col3">Add</button></fieldset>')
+                .addTo(map)
+                .openPopup();
+            // Every time the marker is dragged, update the form.
+            marker.on('dragend', function(e) {
+                marker.openPopup();
+
+                // When the user clicks Add
+                L.DomEvent.addListener(L.DomUtil.get('add-button'), 'click', vm.save);
             });            
         };
 
