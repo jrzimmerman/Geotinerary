@@ -107,4 +107,3 @@ angular.module('app').factory('markerService', [function(){
   
 
 })();
-
