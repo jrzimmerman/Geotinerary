@@ -31,9 +31,10 @@
         <div class="well well-sm text-center">
           <button ng-click="vm.addMarker()" type="submit" class="btn btn-primary">Add Todo</button>
         </div>
-        <div ng-repeat="i in vm.itinerary" class="well well-sm text-center">
-            <li class="text-primary lead">{{i.todoNum}}</li>
-            <li>{{i.todoDesc}}</li>
+        <div ng-repeat="i in vm.todos" class="well well-sm text-center">
+            <li class="text-primary lead">{{i.name}}</li>
+            <li>{{i.text}}</li>
+            <li>{{i.address}}</li>
         </div>
       </div>
       <div class="col-sm-8 mapview">

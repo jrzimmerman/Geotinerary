@@ -39,8 +39,7 @@
 
             // vm.message = dataService.getFirebaseRoot().toString();
             // console.log(vm.message);
-            
-            // vm.todos = dataService.getData();
+            vm.todos = dataService.getData();
 
             var firebaseRef = new Firebase("https://geotinerary1.firebaseio.com/");
             var geoFire = new GeoFire(firebaseRef);
