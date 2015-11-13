@@ -13,10 +13,6 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">About</a></li>
-              </ul>
               <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Search">
@@ -24,7 +20,7 @@
                 <button type="Search Location" class="btn btn-default">Search Address</button>
               </form>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" id="geolocate">Locate</a></li>
+                <li><a href="http://justinzimmerman.net">Created by: Justin Zimmerman</a></li>
               </ul>
             </div>
           </div>
@@ -33,7 +29,7 @@
     
       <div class="col-sm-4  nav nav-sidebar">
         <div class="well well-sm text-center">
-          <button ng-click="vm.save()" type="submit" class="btn btn-primary">Add Todo</button>
+          <button ng-click="vm.addMarker()" type="submit" class="btn btn-primary">Add Todo</button>
         </div>
         <div ng-repeat="i in vm.itinerary" class="well well-sm text-center">
             <li class="text-primary lead">{{i.todoNum}}</li>

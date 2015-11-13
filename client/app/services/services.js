@@ -2,25 +2,6 @@
 
 'use strict';
 
-  angular.module('app').factory('geoLocationService', ['$q', '$http', function($q, $http){
-    
-  var getLocation = function() {
-        
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        map.setView([position.coords.latitude, position.coords.longitude], 10);
-      });
-    }
-      
-  };
-
-  var service = {
-    getLocation : getLocation,
-  };
-        
-  return service;
-
-  }]);
 
 /*
 * Firebase service
@@ -29,8 +10,8 @@
 
   angular.module('app').factory('dataService', ['$firebase','$q', function($firebase,$q){
     
-    var firebaseRef= new Firebase("https://geotinerary1.firebaseio.com/");
-    var geoFire = new GeoFire(firebaseRef.child("_geofire"));
+    var firebaseRef = new Firebase("https://geotinerary1.firebaseio.com/");
+    var geoFire = new GeoFire(firebaseRef);
 
     var getFirebaseRoot = function(){
       return firebaseRef;
