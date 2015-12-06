@@ -25,7 +25,31 @@
 
     };
 
+    vm.addMarker = function() {
+      // Generate a random color for the marker, just for fun.
+      var color = '#' + [
+        (~~(Math.random() * 16)).toString(16), (~~(Math.random() * 16)).toString(16), (~~(Math.random() * 16)).toString(16)
+      ].join('');
 
+      var marker = L.marker([lat, lon], {
+          draggable: true,
+          icon: L.mapbox.marker.icon({
+              'marker-color': color
+            })
+            // Add a form to that marker that lets them specify a message and click Add
+            // to add the data.
+        })
+        .bindPopup('<fieldset class="clearfix input-pill pill mobile-cols"><input type="text" id="vm.text" class="col9" /><button id="add-button" class="col3">Add</button></fieldset>')
+        .addTo(map)
+        .openPopup();
+      // Every time the marker is dragged, update the form.
+      marker.on('dragend', function(e) {
+        marker.openPopup();
+
+        // When the user clicks Add
+        L.DomEvent.addListener(L.DomUtil.get('add-button'), 'click', vm.save);
+      });
+    };
 
     init();
 
@@ -55,10 +79,6 @@
           }
         }
       };
-
-      // Dummy Test data
-      map.featureLayer.setGeoJSON(todos);
-
 
       vm.todos = dataService.getData();
       console.log(vm.todos);
@@ -96,41 +116,5 @@
       });
 
     }
-
-
-
-
-
-
-
-
-
-    /////////////////////////////////////////////
-    // vm.addMarker = function(){
-    //     // Generate a random color for the marker, just for fun.
-    //     var color = '#' + [
-    //       (~~(Math.random() * 16)).toString(16),
-    //       (~~(Math.random() * 16)).toString(16),
-    //       (~~(Math.random() * 16)).toString(16)].join('');
-
-    //     var marker = L.marker([lat, lon], {
-    //         draggable: true,
-    //         icon: L.mapbox.marker.icon({
-    //             'marker-color': color
-    //         })
-    //         // Add a form to that marker that lets them specify a message and click Add
-    //         // to add the data.
-    //     })
-    //       .bindPopup('<fieldset class="clearfix input-pill pill mobile-cols"><input type="text" id="vm.text" class="col9" /><button id="add-button" class="col3">Add</button></fieldset>')
-    //         .addTo(map)
-    //         .openPopup();
-    //     // Every time the marker is dragged, update the form.
-    //     marker.on('dragend', function(e) {
-    //         marker.openPopup();
-
-    //         // When the user clicks Add
-    //         L.DomEvent.addListener(L.DomUtil.get('add-button'), 'click', vm.save);
-    //     });
-    // };
   }
 })();
