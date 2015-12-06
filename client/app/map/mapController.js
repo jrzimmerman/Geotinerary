@@ -10,7 +10,6 @@
         var vm =this;
         vm.includeLocation = true;
         vm.location = {};
-        vm.message = "Hello from Main";
         vm.name = 'testing';
 
         
@@ -28,15 +27,26 @@
             // Mapbox utils
             L.mapbox.accessToken = 'pk.eyJ1IjoianppbW1lcm1hbiIsImEiOiJJNUp6R3lzIn0.k5J_tYDtoowIGvLx_pdwIg';
             var map = L.mapbox.map('map', 'jzimmerman.o4hd1peb');
+
+            vm.searchMap = function(input) {
+            var geocoder = L.mapbox.geocoder('mapbox.places');
+            geocoder.query(input, showMap);
+
+            // work on point an area and location
+            function showMap(err, data) {
+              // if area, fit to bounds
+              if (data.lbounds) {
+                  map.fitBounds(data.lbounds);
+              } else if (data.latlng) {
+                  // otherwise zoom to location
+                  map.setView([data.latlng[0], data.latlng[1]], 13);
+              }
+            }
+          };
             
             // Dummy Test data
             map.featureLayer.setGeoJSON(todos);
 
-            // Wire up geoFire
-            ////////////////////////////////////////
-
-            // vm.message = dataService.getFirebaseRoot().toString();
-            // console.log(vm.message);
             
             vm.todos = dataService.getData();
             console.log(vm.todos);
@@ -75,6 +85,14 @@
             });
 
         }
+
+        
+
+
+
+
+
+
 
         /////////////////////////////////////////////
         // vm.addMarker = function(){
