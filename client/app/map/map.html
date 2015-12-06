@@ -1,43 +1,43 @@
 <div class="container">
-      <header>
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Geotinerary</a>
-            </div>
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Geotinerary</a>
+        </div>
 
-            <div class="collapse navbar-collapse">
-              <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button ng-click="vm.searchMap()" type="submit" class="btn btn-default">Search Address</button>
-              </form>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://justinzimmerman.net">Created by: Justin Zimmerman</a></li>
-              </ul>
+        <div class="collapse navbar-collapse">
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
             </div>
-          </div>
-        </nav>
-      </header>
-    
-      <div class="col-sm-4  nav nav-sidebar">
-        <div class="well well-sm text-center">
-          <button ng-click="vm.save()" type="submit" class="btn btn-primary">Add Todo</button>
-        </div>
-        <div ng-repeat="i in vm.todos" class="well well-sm text-center">
-            <li class="text-primary lead">{{i.name}}</li>
-            <li>{{i.text}}</li>
-            <li>{{i.address}}</li>
+            <button ng-click="vm.searchMap()" type="submit" class="btn btn-default">Search Address</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://justinzimmerman.net">Created by: Justin Zimmerman</a></li>
+          </ul>
         </div>
       </div>
-      <div class="col-sm-8 mapview">
-        <div id="map"></div>
-      </div>
+    </nav>
+  </header>
+
+  <div class="col-sm-4  nav nav-sidebar">
+    <div class="well well-sm text-center">
+      <button ng-click="vm.save()" type="submit" class="btn btn-primary">Add Todo</button>
     </div>
+    <div ng-repeat="i in vm.todos" class="well well-sm text-center">
+      <li class="text-primary lead">{{i.name}}</li>
+      <li>{{i.text}}</li>
+      <li>{{i.address}}</li>
+    </div>
+  </div>
+  <div class="col-sm-8 mapview">
+    <div id="map"></div>
+  </div>
+</div>

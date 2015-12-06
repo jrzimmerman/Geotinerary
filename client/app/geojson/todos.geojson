@@ -1,9 +1,8 @@
 var todos = [
-  
-{
-  "type": "FeatureCollection",
-  "features": [
-    {
+
+  {
+    "type": "FeatureCollection",
+    "features": [{
       "type": "Feature",
       "properties": {
         "marker-color": "#7e7e7e",
@@ -14,13 +13,11 @@ var todos = [
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -79.07890319824219,
+        "coordinates": [-79.07890319824219,
           40.00868343656941
         ]
       }
-    },
-    {
+    }, {
       "type": "Feature",
       "properties": {
         "marker-color": "#7e7e7e",
@@ -31,13 +28,11 @@ var todos = [
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -79.07341003417969,
+        "coordinates": [-79.07341003417969,
           40.04969396696316
         ]
       }
-    },
-    {
+    }, {
       "type": "Feature",
       "properties": {
         "marker-color": "#7e7e7e",
@@ -48,14 +43,12 @@ var todos = [
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -79.16542053222656,
+        "coordinates": [-79.16542053222656,
           40.018675452628074
         ]
       }
-    }
-  ]
-}
+    }]
+  }
 
 
 ];
